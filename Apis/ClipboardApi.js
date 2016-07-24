@@ -5,7 +5,6 @@ import {
   Text,
   View,
   TouchableHighlight,
-  TextInput,
   Clipboard
 } from 'react-native';
 
@@ -13,13 +12,42 @@ export default class ClipboardApi extends Component {
   constructor(props){
     super(props);
     this.state = {
+      sentence: '处处随缘住，无求梦亦安！',
+      copiedText:null
     };
+  }
+
+  async setToClipboard(){
+    if(this.state.sentence){
+      Clipboard.setString(this.state.sentence);
+    }
+  }
+
+  async getFromClipboard(){
+    try{
+      var content = await Clipboard.getString();
+      if(content){
+        this.setState({copiedText:content});
+      }else{
+        this.setState({copiedText:'剪贴板为空'});
+      }
+    }catch(e){
+      this.setState({copiedText: e.message});
+    }
   }
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Clipboard</Text>
+        <Text style={styles.centerText}>{this.state.sentence}</Text>
+        <TouchableHighlight style={styles.btn} underlayColor="#0a8acd" activeOpacity={1} onPress={this.setToClipboard.bind(this)}>
+          <Text style={styles.btnTxt}>复制文字到剪贴板</Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={styles.btn} underlayColor="#0a8acd" activeOpacity={1} onPress={this.getFromClipboard.bind(this)}>
+          <Text style={styles.btnTxt}>从剪贴板粘贴文字</Text>
+        </TouchableHighlight>
+        <Text style={styles.centerText}>{this.state.copiedText}</Text>
       </View>
     );
   }

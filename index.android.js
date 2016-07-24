@@ -17,12 +17,13 @@ import PixelRatioApi from './Apis/PixelRatioApi';
 import BackAndroidApi from './Apis/BackAndroidApi';
 import NetInfoApi from './Apis/NetInfoApi';
 import ClipboardApi from './Apis/ClipboardApi';
+import AppStateApi from './Apis/AppStateApi';
 
 
 class rnApi extends Component {
   constructor(props){
       super(props);
-      let menuArray = [{id:'Index'},{id:'TestPageOne'},{id:'TestPageTwo'},{id:'AlertApi'},{id:'ToastAndroidApi'},{id:'VibrationApi'},{id:'DatePickerAndroidApi'},{id:'TimePickerAndroidApi'},{id:'DimensionsApi'},{id:'PixelRatioApi'},{id:'BackAndroidApi'},{id:'NetInfoApi'},{id:'ClipboardApi'}];
+      let menuArray = [{id:'Index'},{id:'TestPageOne'},{id:'TestPageTwo'},{id:'AlertApi'},{id:'ToastAndroidApi'},{id:'VibrationApi'},{id:'DatePickerAndroidApi'},{id:'TimePickerAndroidApi'},{id:'DimensionsApi'},{id:'PixelRatioApi'},{id:'BackAndroidApi'},{id:'NetInfoApi'},{id:'ClipboardApi'},{id:'AppStateApi'}];
       this.state = {
           dataSource : new ListView.DataSource({
               rowHasChanged:(row1,row2) => row1 !== row2,
@@ -83,9 +84,11 @@ class rnApi extends Component {
             case 'NetInfoApi':
                 return (<NetInfoApi navigator={nav} {...this.props} {...route.passProps} />);
                 break;
-                break;
             case 'ClipboardApi':
                 return (<ClipboardApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'AppStateApi':
+                return (<AppStateApi navigator={nav} {...this.props} {...route.passProps} />);
                 break;
         }
     }
@@ -110,7 +113,7 @@ class rnApi extends Component {
 
               <View style={styles.container}>
                   <Navigator
-                      initialRoute={{id:'ClipboardApi'}}
+                      initialRoute={{id:'Index'}}
                       ref={((nav) => { global.nav = nav })}
                       renderScene={this.renderScene.bind(this)}
                       configureScene={(route) => {
