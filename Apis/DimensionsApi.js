@@ -8,7 +8,7 @@ import {
   Dimensions
 } from 'react-native';
 
-class DimensionsDemo extends Component {
+export default class DimensionsApi extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -34,7 +34,7 @@ class DimensionsDemo extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>DimensionsDemo</Text>
+        <Text style={styles.title}>Dimensions</Text>
         <Text style={styles.centerText}>窗口宽度：{this.state.wWidth}</Text>
         <Text style={styles.centerText}>窗口高度：{this.state.hHeight}</Text>
         <View style={styles.divider}></View>
@@ -59,5 +59,3 @@ const styles = StyleSheet.create({
   btnTxt:{textAlign:'center',color:'#fff'},
   centerText:{textAlign:'center'}
 })
-
-module.exports = DimensionsDemo;

@@ -18,6 +18,25 @@ export default class AlertApi extends Component {
         <TouchableHighlight style={styles.button} onPress={() => Alert.alert('这是弹出信息框标题', '这是弹出信息框的内容信息。')}>
           <Text style={styles.btnText}>基本弹出信息框</Text>
         </TouchableHighlight>
+        <TouchableHighlight style={styles.button} underlayColor="#0a8acd" activeOpacity={1} onPress={() => Alert.alert(
+          '提示',
+          '这是一个提示框',
+          [
+            {text: '知道了', onPress: () => this.setState({description:'你点击了按钮'})},
+          ]
+        )}>
+          <Text style={styles.btnText}>弹出提示框</Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={styles.button} underlayColor="#0a8acd" activeOpacity={1} onPress={() => Alert.alert(
+          '提示',
+          '这是一个确认框',
+          [
+            {text: '取消', onPress: () => this.setState({description:'你点击了取消按钮'}),style:'cancel'},
+            {text: '确认', onPress: () => this.setState({description:'你点击了确认按钮'})}
+          ]
+        )}>
+          <Text style={styles.btnText}>弹出确认框</Text>
+        </TouchableHighlight>
         <TouchableHighlight style={[styles.button, {'backgroundColor': this.state.linkColor}]} onPress={() => Alert.alert('这是弹出信息框标题',
          '这是弹出信息框的内容信息。',
          [

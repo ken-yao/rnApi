@@ -8,7 +8,7 @@ import {
   DatePickerAndroid
 } from 'react-native';
 
-class DatePickerAndroidDemo extends Component {
+export default class DatePickerAndroidApi extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -97,5 +97,3 @@ const styles = StyleSheet.create({
   centerText:{textAlign:'center'},
   text: {textAlign:'center',color:'#fff'},
 })
-
-module.exports = DatePickerAndroidDemo;

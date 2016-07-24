@@ -8,12 +8,21 @@ import TestPageThree from './Page/TestPageThree';
 import TestPageFour from './Page/TestPageFour';
 
 import AlertApi from './Apis/AlertApi';
+import ToastAndroidApi from './Apis/ToastAndroidApi';
+import VibrationApi from './Apis/VibrationApi';
+import DatePickerAndroidApi from './Apis/DatePickerAndroidApi';
+import TimePickerAndroidApi from './Apis/TimePickerAndroidApi';
+import DimensionsApi from './Apis/DimensionsApi';
+import PixelRatioApi from './Apis/PixelRatioApi';
+import BackAndroidApi from './Apis/BackAndroidApi';
+import NetInfoApi from './Apis/NetInfoApi';
+import ClipboardApi from './Apis/ClipboardApi';
 
 
 class rnApi extends Component {
   constructor(props){
       super(props);
-      let menuArray = [{id:'Index'},{id:'TestPageOne'},{id:'TestPageTwo'},{id:'AlertApi'}];
+      let menuArray = [{id:'Index'},{id:'TestPageOne'},{id:'TestPageTwo'},{id:'AlertApi'},{id:'ToastAndroidApi'},{id:'VibrationApi'},{id:'DatePickerAndroidApi'},{id:'TimePickerAndroidApi'},{id:'DimensionsApi'},{id:'PixelRatioApi'},{id:'BackAndroidApi'},{id:'NetInfoApi'},{id:'ClipboardApi'}];
       this.state = {
           dataSource : new ListView.DataSource({
               rowHasChanged:(row1,row2) => row1 !== row2,
@@ -50,6 +59,34 @@ class rnApi extends Component {
             case 'AlertApi':
                 return (<AlertApi navigator={nav} {...this.props} {...route.passProps} />);
                 break;
+            case 'ToastAndroidApi':
+                return (<ToastAndroidApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'VibrationApi':
+                return (<VibrationApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'DatePickerAndroidApi':
+                return (<DatePickerAndroidApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'TimePickerAndroidApi':
+                return (<TimePickerAndroidApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'DimensionsApi':
+                return (<DimensionsApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'PixelRatioApi':
+                return (<PixelRatioApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'BackAndroidApi':
+                return (<BackAndroidApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'NetInfoApi':
+                return (<NetInfoApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+                break;
+            case 'ClipboardApi':
+                return (<ClipboardApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
         }
     }
 
@@ -73,7 +110,7 @@ class rnApi extends Component {
 
               <View style={styles.container}>
                   <Navigator
-                      initialRoute={{id:'AlertApi'}}
+                      initialRoute={{id:'ClipboardApi'}}
                       ref={((nav) => { global.nav = nav })}
                       renderScene={this.renderScene.bind(this)}
                       configureScene={(route) => {
@@ -91,25 +128,9 @@ class rnApi extends Component {
   }
 
   const styles = StyleSheet.create({
-    container:{
-      flex:1,
-    },
-    menuTitle:{
-      marginTop: 16,
-      marginBottom:16,
-      color:'#4f4f4f',
-      fontSize: 20,
-      textAlign: 'center'
-    },
-    menuItem:{
-      flex:1,
-      alignItems:'center',
-      justifyContent:'center',
-      flexDirection:'column',
-      margin:10,
-    },
-    menuText:{
-      fontSize:18
-    }
+    container:{flex:1},
+    menuTitle:{marginTop: 16, marginBottom:16, color:'#4f4f4f', fontSize: 20, textAlign: 'center' },
+    menuItem:{flex:1, alignItems:'center',justifyContent:'center', flexDirection:'column', margin:10},
+    menuText:{fontSize:18}
   });
 AppRegistry.registerComponent('rnApi', () => rnApi);

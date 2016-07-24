@@ -8,7 +8,7 @@ import {
   Vibration
 } from 'react-native';
 
-class VibrationDemo extends Component {
+export default class VibrationApi extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -25,6 +25,9 @@ class VibrationDemo extends Component {
         <TouchableHighlight style={styles.btn} underlayColor="#0a8acd" activeOpacity={1} onPress={() => Vibration.cancel()}>
           <Text style={styles.btnTxt}>取消震动</Text>
         </TouchableHighlight>
+
+        <Text style={{margin:10}}>注：使用Vibration API需要取得权限，在项目根目录/android/app/src/main/AndroidManifest.xml 文件中加入：</Text>
+        <Text style={{margin:10}}> uses-permission android:name="android.permission.VIBRATE" </Text>
       </View>
     );
   }
@@ -38,5 +41,3 @@ const styles = StyleSheet.create({
   btn:{backgroundColor:'#dd3333',borderRadius:5,margin:10,padding:10},
   btnTxt:{textAlign:'center',color:'#fff'}
 })
-
-module.exports = VibrationDemo;

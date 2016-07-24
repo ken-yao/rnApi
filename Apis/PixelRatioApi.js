@@ -8,7 +8,7 @@ import {
   PixelRatio
 } from 'react-native';
 
-class PixelRatioDemo extends Component {
+export default class PixelRatioApi extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -38,8 +38,6 @@ class PixelRatioDemo extends Component {
   getRoundPX(){
     this.setState({
       pxRound: PixelRatio.roundToNearestPixel(this.state.boxRoundWidth),  //获得最接近的合适宽度
-    });
-    this.setState({
       RoundPX: PixelRatio.getPixelSizeForLayoutSize(this.state.pxRound)   //获得最接近的合适宽度后转换为的像素值
     });
   }
@@ -85,5 +83,3 @@ const styles = StyleSheet.create({
   centerText:{textAlign:'center'},
   box:{margin:10,borderWidth:1,borderColor:'#0a8acd',padding:20,alignSelf:'center'}
 })
-
-module.exports = PixelRatioDemo;

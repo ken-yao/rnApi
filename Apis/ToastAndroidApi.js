@@ -8,7 +8,7 @@ import {
   ToastAndroid
 } from 'react-native';
 
-class ToastAndroidDemo extends Component {
+export default class ToastAndroidApi extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -36,5 +36,3 @@ const styles = StyleSheet.create({
   btn:{backgroundColor:'#dd3333',borderRadius:5,margin:10,padding:10},
   btnTxt:{textAlign:'center',color:'#fff'}
 })
-
-module.exports = ToastAndroidDemo;

@@ -13,7 +13,7 @@ function _formatTime(hour, minute) {
   return hour + ':' + (minute < 10 ? '0' + minute : minute);
 }
 
-class TimePickerAndroidDemo extends Component {
+export default class TimePickerAndroidApi extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -33,10 +33,12 @@ class TimePickerAndroidDemo extends Component {
           newState[stateKey + 'Text'] = _formatTime(hour, minute);
           newState[stateKey + 'Hour'] = hour;
           newState[stateKey + 'Minute'] = minute;
+          newState.Info = _formatTime(hour, minute);
         } else if (action === TimePickerAndroid.dismissedAction) {
           newState[stateKey + 'Text'] = 'dismissed';
+          newState.Info = '你取消了选择时间';
         }
-        this.setState(newState);
+        this.setState({simpleText: newState.Info});
       } catch ({code, message}) {
         console.warn(`Error in example '${stateKey}': `, message);
       }
@@ -49,7 +51,7 @@ class TimePickerAndroidDemo extends Component {
         <TouchableHighlight
           style={styles.btn}
           underlayColor="#0a8acd"
-          onPress={this.showPicker.bind(this, 'simple')}>
+          onPress={this.showPicker.bind(this)}>
           <Text style={styles.text}>{this.state.simpleText}</Text>
         </TouchableHighlight>
         <TouchableHighlight
@@ -85,5 +87,3 @@ const styles = StyleSheet.create({
   centerText:{textAlign:'center'},
   text: {textAlign:'center',color:'#fff'},
 })
-
-module.exports = TimePickerAndroidDemo;
