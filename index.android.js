@@ -18,12 +18,15 @@ import BackAndroidApi from './Apis/BackAndroidApi';
 import NetInfoApi from './Apis/NetInfoApi';
 import ClipboardApi from './Apis/ClipboardApi';
 import AppStateApi from './Apis/AppStateApi';
+import GeolocationApi from './Apis/GeolocationApi';
+import CameraRollApi from './Apis/CameraRollApi';
+import LinkingApi from './Apis/LinkingApi';
 
 
 class rnApi extends Component {
   constructor(props){
       super(props);
-      let menuArray = [{id:'Index'},{id:'TestPageOne'},{id:'TestPageTwo'},{id:'AlertApi'},{id:'ToastAndroidApi'},{id:'VibrationApi'},{id:'DatePickerAndroidApi'},{id:'TimePickerAndroidApi'},{id:'DimensionsApi'},{id:'PixelRatioApi'},{id:'BackAndroidApi'},{id:'NetInfoApi'},{id:'ClipboardApi'},{id:'AppStateApi'}];
+      let menuArray = [{id:'Index'},{id:'TestPageOne'},{id:'TestPageTwo'},{id:'AlertApi'},{id:'ToastAndroidApi'},{id:'VibrationApi'},{id:'DatePickerAndroidApi'},{id:'TimePickerAndroidApi'},{id:'DimensionsApi'},{id:'PixelRatioApi'},{id:'BackAndroidApi'},{id:'NetInfoApi'},{id:'ClipboardApi'},{id:'AppStateApi'},{id:'GeolocationApi'},{id:'CameraRollApi'},{id:'LinkingApi'}];
       this.state = {
           dataSource : new ListView.DataSource({
               rowHasChanged:(row1,row2) => row1 !== row2,
@@ -89,6 +92,15 @@ class rnApi extends Component {
                 break;
             case 'AppStateApi':
                 return (<AppStateApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'GeolocationApi':
+                return (<GeolocationApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'CameraRollApi':
+                return (<CameraRollApi navigator={nav} {...this.props} {...route.passProps} />);
+                break;
+            case 'LinkingApi':
+                return (<LinkingApi navigator={nav} {...this.props} {...route.passProps} />);
                 break;
         }
     }
